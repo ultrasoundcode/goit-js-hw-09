@@ -1,10 +1,8 @@
-const startBtn = document
-  .querySelector('[data-start]')
-  .addEventListener('click', onStartBtnClick);
-const stopBtn = document
-  .querySelector('[data-stop]')
-  .addEventListener('click', onStopBtnClick);
+const startBtn = document.querySelector('[data-start]');
+const stopBtn = document.querySelector('[data-stop]');
 let intervalId = null;
+startBtn.addEventListener('click', onStartBtnClick);
+stopBtn.addEventListener('click', onStopBtnClick);
 
 function setRandomColor() {
   const color = getRandomHexColor();
