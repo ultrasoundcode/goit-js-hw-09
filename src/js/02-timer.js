@@ -84,13 +84,15 @@ function updateTime() {
 
   const deltaTime = selectedTime - currentTime;
 
-  if (deltaTime < 0) {
+  if (deltaTime <= 0) {
+    clearInterval(timeoutId);
+    timerMarkup.input.disabled = false;
     return;
-  } else {
-    const { days, hours, minutes, seconds } = convertMs(deltaTime);
-    timerMarkup.days.textContent = `${days}`;
-    timerMarkup.hours.textContent = `${hours}`;
-    timerMarkup.minutes.textContent = `${minutes}`;
-    timerMarkup.seconds.textContent = `${seconds}`;
   }
+
+  const { days, hours, minutes, seconds } = convertMs(deltaTime);
+  timerMarkup.days.textContent = `${days}`;
+  timerMarkup.hours.textContent = `${hours}`;
+  timerMarkup.minutes.textContent = `${minutes}`;
+  timerMarkup.seconds.textContent = `${seconds}`;
 }
